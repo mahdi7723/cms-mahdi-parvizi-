@@ -20,7 +20,6 @@ return new class extends Migration
             $table->string('main_body');
             $table->enum('status',['draft','published','No show']);
             $table->boolean('is_ActivComment')->default(1);
-            $table->timestampsTz('Release date');
             $table->timestamps();
         });
     }

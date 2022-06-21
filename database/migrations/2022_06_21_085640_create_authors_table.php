@@ -14,9 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('authors', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
-            $table->timestamps();
+            $table->id();
+            $table->bigInteger('user_id')->unsigned();
             $table->string('city');
             $table->enum('Level',['junior,','mid_level','senior']);
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');

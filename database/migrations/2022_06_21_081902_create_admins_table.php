@@ -14,11 +14,10 @@ return new class extends Migration
     public function up()
     {
         Schema::create('admins', function (Blueprint $table) {
-            $table->increments('id');
-            $table->unsignedInteger('user_id');
+            $table->id();
+            $table->bigInteger('user_id')->unsigned();
             $table->integer('National_Code');
             $table->boolean('status')->default(0);
-            $table->timestamps();
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });

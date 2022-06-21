@@ -13,4 +13,8 @@ class Admin extends Model
         'National_Code',
         'status',
     ];
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }
