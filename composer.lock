@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "b8ca482b8ed487ed84da320219764c1d",
+    "content-hash": "452efa9592079d393467bac8001ec85d",
     "packages": [
         {
             "name": "brick/math",
@@ -892,6 +892,50 @@
                 }
             ],
             "time": "2022-06-20T21:43:11+00:00"
+        },
+        {
+            "name": "kasraghoreyshi/persian-faker",
+            "version": "v1.04",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kasraghoreyshi/persian-faker.git",
+                "reference": "69fa80c57903531b41d0f7ac3f7234b807ad76a9"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kasraghoreyshi/persian-faker/zipball/69fa80c57903531b41d0f7ac3f7234b807ad76a9",
+                "reference": "69fa80c57903531b41d0f7ac3f7234b807ad76a9",
+                "shasum": ""
+            },
+            "type": "library",
+            "extra": {
+                "laravel": {
+                    "providers": [
+                        "Kasraghoreyshi\\PersianFaker\\PersianFakerServiceProvider"
+                    ]
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "Kasraghoreyshi\\PersianFaker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "kasraghoreyshi",
+                    "email": "kasra.ghoreyshi84@gmail.com"
+                }
+            ],
+            "description": "Persian faker functions for laravel",
+            "support": {
+                "issues": "https://github.com/kasraghoreyshi/persian-faker/issues",
+                "source": "https://github.com/kasraghoreyshi/persian-faker/tree/v1.04"
+            },
+            "time": "2021-04-26T09:16:13+00:00"
         },
         {
             "name": "laravel/framework",
@@ -5085,6 +5129,48 @@
             "time": "2022-06-03T18:03:27+00:00"
         },
         {
+            "name": "webpajooh/persian-faker",
+            "version": "dev-master",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/WebPajooh/PersianFaker.git",
+                "reference": "f02cb562b98e2b72cfd7aab8e1bbfa1ffaa52789"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/WebPajooh/PersianFaker/zipball/f02cb562b98e2b72cfd7aab8e1bbfa1ffaa52789",
+                "reference": "f02cb562b98e2b72cfd7aab8e1bbfa1ffaa52789",
+                "shasum": ""
+            },
+            "default-branch": true,
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PersianFaker\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "WebPajooh",
+                    "email": "webpajooh@gmail.com"
+                }
+            ],
+            "description": "Do you need some fake data?",
+            "keywords": [
+                "faker",
+                "persian"
+            ],
+            "support": {
+                "issues": "https://github.com/WebPajooh/PersianFaker/issues",
+                "source": "https://github.com/WebPajooh/PersianFaker/tree/master"
+            },
+            "time": "2021-05-08T14:47:57+00:00"
+        },
+        {
             "name": "ybazli/faker",
             "version": "v1.0.1",
             "source": {
@@ -7841,7 +7927,9 @@
     ],
     "aliases": [],
     "minimum-stability": "dev",
-    "stability-flags": [],
+    "stability-flags": {
+        "webpajooh/persian-faker": 20
+    },
     "prefer-stable": true,
     "prefer-lowest": false,
     "platform": {

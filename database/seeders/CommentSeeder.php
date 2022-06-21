@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Author;
+use App\Models\Comment;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class AuthorSeeder extends Seeder
+class CommentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,7 +14,7 @@ class AuthorSeeder extends Seeder
      * @return void
      */
     public function run()
-    {Author::factory()->times(3)->create();
-
+    {
+        Comment::factory()->times(5)->create();
     }
 }

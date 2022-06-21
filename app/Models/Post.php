@@ -16,4 +16,12 @@ class Post extends Model
         'is_ActivComment',
         'Release date',
     ];
+    public function Author()
+    {
+        return $this->hasOne(Author::class);
+    }
+    public function post()
+    {
+        return $this->belongsTo(Post::class);
+    }
 }
