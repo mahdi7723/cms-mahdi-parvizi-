@@ -13,4 +13,8 @@ class Author extends Model
         'Level',
         'status',
     ];
+    public function User()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

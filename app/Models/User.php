@@ -49,4 +49,8 @@ class User extends Authenticatable
     {
         return $this->hasOne(Admin::class);
     }
+    public function Author()
+    {
+        return $this->hasOne(Author::class);
+    }
 }
