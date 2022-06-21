@@ -19,7 +19,8 @@ return new class extends Migration
             $table->integer('National_Code');
             $table->boolean('status')->default(0);
             $table->timestamps();
-
+            $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade')->onUpdate('cascade');
+            $table->timestamps();
         });
     }
 
