@@ -15,11 +15,13 @@ return new class extends Migration
     {
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
+            $table->bigInteger('author_id')->unsigned();
             $table->string('title');
             $table->string('slug');
             $table->string('main_body');
             $table->enum('status',['draft','published','No show']);
             $table->boolean('is_ActivComment')->default(1);
+            $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Models\Author;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -17,6 +18,7 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
+            'author_id' => Author::all()->random()->id,
             'title'=>$this->faker->text(),
             'slug'=>$this->faker->slug(),
             'main_body'=>$this->faker->paragraph(),

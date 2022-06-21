@@ -18,10 +18,10 @@ class Post extends Model
     ];
     public function Author()
     {
-        return $this->hasOne(Author::class);
+        return $this->belongsToMany(Author::class);
     }
-    public function post()
+    public function Category()
     {
-        return $this->belongsTo(Post::class);
+        return $this->hasMany(Category::class);
     }
 }
