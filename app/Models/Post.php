@@ -7,7 +7,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class Post extends Model
 {
+
     use HasFactory;
+
     protected $fillable = [
         'title',
         'slug',
@@ -16,12 +18,19 @@ class Post extends Model
         'is_ActivComment',
         'Release date',
     ];
-    public function Author()
+
+    public function author()
     {
-        return $this->belongsToMany(Author::class);
+        return $this->belongsTo(Author::class);
     }
-    public function Category()
+
+    public function category()
     {
-        return $this->hasMany(Category::class);
+        return $this->belongsTo(Category::class);
+    }
+
+    public function comments()
+    {
+        return $this->hasMany(Comment::class);
     }
 }

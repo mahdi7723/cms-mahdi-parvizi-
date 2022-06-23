@@ -8,17 +8,21 @@ use Illuminate\Database\Eloquent\Model;
 class Author extends Model
 {
     use HasFactory;
+
     protected $fillable = [
         'user_id',
-        'Level',
+        'level',
         'status',
     ];
-    public function User()
+
+    public function user()
     {
         return $this->belongsTo(User::class);
     }
-    public function Post()
+
+    public function posts()
     {
-        return $this->hasOne(Post::class);
+        return $this->hasMany(Post::class);
     }
+
 }

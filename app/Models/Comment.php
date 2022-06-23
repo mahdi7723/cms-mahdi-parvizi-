@@ -7,13 +7,17 @@ use Illuminate\Database\Eloquent\Model;
 
 class Comment extends Model
 {
+
     use HasFactory;
+
     protected $fillable = [
         'post_id',
         'comment',
     ];
-    public function Comment()
+
+    public function post()
     {
-        return $this->hasMany(Comment::class);
+        return $this->belongsTo(Post::class);
     }
+
 }

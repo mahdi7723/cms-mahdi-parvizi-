@@ -14,10 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('categories', function (Blueprint $table) {
-            $table->id();
-            $table->bigInteger('post_id')->unsigned();
-            $table->enum('category',['Technology','international','Religious','Political','Economical','Other']);
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
+            $table->tinyIncrements('id');
+            $table->enum('title', ['technology','international','religious','political','economical','other']);
             $table->timestamps();
         });
     }

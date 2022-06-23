@@ -15,6 +15,11 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::factory()->times(6)->create();
+        Category::create(['title' => 'technology']);
+        Category::create(['title' => 'international']);
+        Category::create(['title' => 'religious']);
+        Category::create(['title' => 'political']);
+        Category::create(['title' => 'economical']);
+        Category::create(['title' => 'other']);
     }
 }

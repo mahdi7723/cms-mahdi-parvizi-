@@ -18,10 +18,8 @@ class CommentFactory extends Factory
     public function definition()
     {
         return [
-
-            'post_id' => Post::all()->random()->id,
-            'comment' =>$this->faker->text(),
-
+            'post_id' => Post::inRandomOrder()->first()->id,
+            'message' => $this->faker->realText(),
         ];
     }
 }

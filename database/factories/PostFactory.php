@@ -3,7 +3,9 @@
 namespace Database\Factories;
 
 use App\Models\Author;
+use App\Models\Category;
 use Illuminate\Database\Eloquent\Factories\Factory;
+use Illuminate\Support\Arr;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Post>
@@ -19,10 +21,11 @@ class PostFactory extends Factory
     {
         return [
             'author_id' => Author::all()->random()->id,
-            'title'=>$this->faker->text(),
-            'slug'=>$this->faker->slug(),
-            'main_body'=>$this->faker->paragraph(),
-            'status' => $this->faker->randomElement(['draft','published','No show']),
+            'title' => $this->faker->realText(),
+            'slug' => $this->faker->slug(),
+            'body' => $this->faker->paragraph(),
+            'category_id' => Category::inRandomOrder()->first()->id,
+            'status' => Arr::random(['draft', 'published', 'hidden']),
         ];
     }
 }

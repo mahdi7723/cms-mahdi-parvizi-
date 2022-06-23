@@ -45,11 +45,11 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function Admin()
+    public function admin()
     {
         return $this->hasOne(Admin::class);
     }
-    public function Author()
+    public function author()
     {
         return $this->hasOne(Author::class);
     }
