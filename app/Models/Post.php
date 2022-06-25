@@ -10,14 +10,7 @@ class Post extends Model
 
     use HasFactory;
 
-    protected $fillable = [
-        'title',
-        'slug',
-        'main_body',
-        'status',
-        'is_ActivComment',
-        'Release date',
-    ];
+    protected $guarded = ['id'];
 
     public function author()
     {

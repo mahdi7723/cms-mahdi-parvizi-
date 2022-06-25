@@ -9,11 +9,7 @@ class Author extends Model
 {
     use HasFactory;
 
-    protected $fillable = [
-        'user_id',
-        'level',
-        'status',
-    ];
+    protected $guarded = ['id'];
 
     public function user()
     {
