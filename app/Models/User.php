@@ -45,4 +45,12 @@ class User extends Authenticatable
     {
         return $this->hasOne(Author::class);
     }
+    public function videos()
+    {
+        return $this->hasManyThrough(Video::class,Author::class);
+    }
+    public function posts()
+    {
+        return $this->hasManyThrough(Post::class,Author::class);
+    }
 }

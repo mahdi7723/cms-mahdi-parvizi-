@@ -18,7 +18,7 @@ return new class extends Migration
             $table->unsignedBigInteger('author_id');
             $table->string('title',100);
             $table->string('description');
-            $table->unsignedin('duration');
+            $table->unsignedInteger('duration');
             $table->timestamp('release_at');
             $table->string('uid')->unique();
             $table->timestamps();
