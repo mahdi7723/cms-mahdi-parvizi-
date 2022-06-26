@@ -18,12 +18,13 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $phone="09".$this->faker->numerify('########');
         return [
             'first_name' => $this->faker->firstName(),
             'last_name' => $this->faker->lastName(),
             'avatar' => Arr::random(['user1.jpg', 'user2.jpg', 'user3.jpg', null, null]),
             'email' => $this->faker->unique()->safeEmail(),
-            'phone'=>$this->faker->phoneNumber(),
+            'phone'=>$phone,
             'last_login_at'=>$this->faker->dateTime(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
