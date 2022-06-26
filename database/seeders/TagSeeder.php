@@ -2,11 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Models\Video;
+use App\Models\tag;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class VideoSeeder extends Seeder
+class TagSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -15,6 +15,6 @@ class VideoSeeder extends Seeder
      */
     public function run()
     {
-        Video::factory()->count(8)->create();
+        tag::factory()->times(5)->create();
     }
 }

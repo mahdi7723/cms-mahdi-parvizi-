@@ -20,8 +20,5 @@ class Author extends Model
     {
         return $this->hasMany(Post::class);
     }
-    public function videos()
-    {
-        return $this->hasMany(Video::class);
-    }
+
 }
