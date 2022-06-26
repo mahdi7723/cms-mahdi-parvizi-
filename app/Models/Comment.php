@@ -16,5 +16,8 @@ class Comment extends Model
     {
         return $this->belongsTo(Post::class);
     }
-
+    public function video()
+    {
+        return $this->belongsTo(Video::class);
+    }
 }

@@ -24,9 +24,9 @@ return new class extends Migration
             $table->boolean('is_commentable')->default(true);
             $table->timestamps();
 
+
             $table->foreign('author_id')->references('id')->on('authors')->onDelete('cascade')->onUpdate('cascade');
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade')->onUpdate('cascade');
-
         });
     }
 
