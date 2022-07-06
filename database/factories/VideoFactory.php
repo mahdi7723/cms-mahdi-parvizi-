@@ -5,7 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 use App\Models\Author;
-use App\Models\Comment;
+use App\Models\Video;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Video>
@@ -21,6 +21,7 @@ class VideoFactory extends Factory
     {
         return [
             'author_id' => Author::all()->random()->id,
+            'videos_id' => Video::all()->random()->id,
             'title'       =>$this->faker->realText(),
             'description' =>$this->faker->realText(),
             'duration'    =>$this->faker->numberBetween(1000,100000),

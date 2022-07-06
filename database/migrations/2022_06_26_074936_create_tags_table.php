@@ -17,6 +17,8 @@ return new class extends Migration
             $table->id();
             $table->enum('lable', ['breakingnews','controversial','Iran','comedy','programming']);
             $table->timestamps();
+
+            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

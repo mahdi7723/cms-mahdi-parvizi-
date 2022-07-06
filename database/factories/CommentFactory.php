@@ -19,6 +19,7 @@ class CommentFactory extends Factory
     {
         return [
             'post_id' => Post::inRandomOrder()->first()->id,
+            
             'message' => $this->faker->realText(),
         ];
     }

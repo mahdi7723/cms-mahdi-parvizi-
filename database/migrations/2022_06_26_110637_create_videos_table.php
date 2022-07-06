@@ -16,7 +16,6 @@ return new class extends Migration
         Schema::create('videos', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('author_id');
-            $table->unsignedBigInteger('commentable');
             $table->string('title');
             $table->string('description');
             $table->unsignedInteger('duration');
