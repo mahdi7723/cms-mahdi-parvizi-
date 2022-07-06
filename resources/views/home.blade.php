@@ -11,13 +11,13 @@
                             <img src="..." class="card-img" alt="...">
                           </div>
                           <div class="col-md-8">
-                            <p>{{ $user->last_name }} . {{ $user->created_at }}</p>
+                            <p>{{ $post->tags }} . {{ $post->created_at }}</p>
                             <div class="card-body">
-                              <h5 class="card-title">Card title</h5>
-                              <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                              <h5 class="card-title">{{ post->title }}</h5>
+                              <p class="card-text">{{ $post->body }}</p>
                              <div class="contaner">
-                                <p class="float-end">{{ $user->last_name }}</p>
-                                <img src="{{ $user->avatar }}" class="rounded-circle w-25 float-end"/>
+                                <p class="float-end">{{ $post->author }}</p>
+                                <img src="#" class="rounded-circle w-25 float-end"/>
 
                              </div>
                             </div>
