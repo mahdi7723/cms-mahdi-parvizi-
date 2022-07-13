@@ -25,6 +25,7 @@ class DatabaseSeeder extends Seeder
         $this->call(PostSeeder::class);
         $this->call(CommentSeeder::class);
         $this->call(VideoSeeder::class);
+        $this->call(CitySeeder::class);
 
         // \App\Models\User::factory(10)->create();
 

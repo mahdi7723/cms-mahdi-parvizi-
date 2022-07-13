@@ -15,11 +15,14 @@ class CategorySeeder extends Seeder
      */
     public function run()
     {
-        Category::create(['title' => 'technology']);
-        Category::create(['title' => 'international']);
-        Category::create(['title' => 'religious']);
-        Category::create(['title' => 'political']);
-        Category::create(['title' => 'economical']);
-        Category::create(['title' => 'other']);
+        $categories = [
+            ['title' => 'تکنولوژی'],
+            ['title' => 'بین المللی'],
+            ['title' => 'مذهبی'],
+            ['title' => 'سیاسی'],
+            ['title' => 'اقتصادی'],
+            ['title' => 'دیگر'],
+        ];
+        Category::insert($categories);
     }
 }

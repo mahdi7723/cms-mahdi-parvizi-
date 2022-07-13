@@ -20,6 +20,7 @@ return new class extends Migration
             $table->string('title');
             $table->string('slug')->unique();
             $table->longText('body');
+            $table->string('image')->nullable();
             $table->enum('status', ['draft','published','hidden']);
             $table->boolean('is_commentable')->default(true);
             $table->timestamps();

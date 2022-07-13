@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use App\Models\tag as ModelsTag;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Foundation\Auth\User;
@@ -10,12 +11,13 @@ use \Znck\Eloquent\Traits\belongsToThrough;
 class Post extends Model
 {
 
-    use HasFactory;
+    use HasFactory,
+        BelongsToThrough;
     protected $guarded = ['id'];
 
     public function user()
     {
-        return $this->belongsToThrough(User::class, Author::class,'user_id','author_id');
+        return $this->belongsToThrough(User::class, Author::class);
     }
     public function author()
     {
@@ -24,15 +26,15 @@ class Post extends Model
 
     public function category()
     {
-        return $this->hasOne(Category::class);
+        return $this->belongsTo(Category::class);
     }
 
     public function comments()
     {
-        return $this->morphMany(Comment::class,'message');
+        return $this->morphMany(Comment::class,'commentable');
     }
     public function tags()
     {
-        return $this->hasMany(Tag::class);
+        return $this->belongsToMany(tag::class);
     }
 }

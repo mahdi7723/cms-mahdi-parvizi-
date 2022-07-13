@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PostController;
+use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,9 +14,14 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+Route::get('/', function () {
+    return view('home');
+})->name('home');
 
-Route::get('/',PostController::class . '@index');
-Route::get('/{Post}',PostController::class . '@show');
+
+Route::get('/posts',[PostsController::class, 'index'])->name('posts');
+Route::get('/post/show/{id}',[PostsController::class, 'show'])->name('show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth'])->name('dashboard');

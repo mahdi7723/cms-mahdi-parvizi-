@@ -11,10 +11,22 @@ class Category extends Model
     use HasFactory;
 
     protected $guarded = ['id'];
+    public $timestamps = false;
+
+
+    public function parent()
+    {
+        return $this->belongsTo(self::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(self::class, 'parent_id');
+    }
 
     public function posts()
     {
-        return $this->belongsToMany(post::class);
+        return $this->hasMany(post::class);
     }
 
 }

@@ -14,7 +14,7 @@ class AuthorSeeder extends Seeder
      * @return void
      */
     public function run()
-    {Author::factory()->times(3)->create();
+    {Author::factory()->count(3)->create();
 
     }
 }

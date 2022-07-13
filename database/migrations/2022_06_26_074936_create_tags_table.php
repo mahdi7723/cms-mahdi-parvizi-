@@ -15,10 +15,18 @@ return new class extends Migration
     {
         Schema::create('tags', function (Blueprint $table) {
             $table->id();
-            $table->enum('lable', ['breakingnews','controversial','Iran','comedy','programming']);
+            $table->string('lable');
             $table->timestamps();
+        });
+        Schema::create('post_tag', function (Blueprint $table) {
+            $table->id();
+            $table->unsignedBigInteger('post_id');
+            $table->unsignedBigInteger('tag_id');
 
-            $table->foreign('post_id')->references('id')->on('posts')->onDelete('cascade')->onUpdate('cascade');
+            $table->unique(['post_id', 'tag_id']);
+            $table->foreign('post_id')->references('id')->on('posts');
+            $table->foreign('tag_id')->references('id')->on('tags');
+            $table->timestamps();
         });
     }
 

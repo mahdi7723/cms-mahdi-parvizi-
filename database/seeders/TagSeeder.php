@@ -15,6 +15,13 @@ class TagSeeder extends Seeder
      */
     public function run()
     {
-        tag::factory()->times(5)->create();
+        $tags=[
+            ['lable'=> 'اخبار فوری'],
+            ['lable'=> 'ایران'],
+            ['lable'=> 'جنجالی'],
+            ['lable'=> 'طنز'],
+            ['lable'=> 'برنامه نویسی'],
+        ];
+        tag::insert($tags);
     }
 }

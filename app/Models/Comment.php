@@ -12,12 +12,12 @@ class Comment extends Model
 
     protected $guarded = ['id'];
 
-    public function post()
+    public function comment()
     {
-        return $this->belongsTo(Post::class);
+        return $this->morphTo(Comment::class, 'commentable');
     }
-    public function video()
+    public function user()
     {
-        return $this->belongsTo(Video::class);
+        return $this->belongsTo(User::class);
     }
 }

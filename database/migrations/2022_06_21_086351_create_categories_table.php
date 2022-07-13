@@ -15,7 +15,8 @@ return new class extends Migration
     {
         Schema::create('categories', function (Blueprint $table) {
             $table->tinyIncrements('id');
-            $table->enum('title', ['technology','international','religious','political','economical','other']);
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->string('title');
             $table->timestamps();
         });
     }
