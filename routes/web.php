@@ -1,9 +1,8 @@
 <?php
 
-use App\Http\Controllers\CommentController;
-use App\Http\Controllers\PostController;
-use App\Http\Controllers\PostsController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\PostController;
+use App\Http\Controllers\CommentController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,13 +14,13 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
-Route::get('/', function () {
-    return view('home');
-})->name('home');
+//Route::get('/', function () {
+//    return view('home');
+//})->name('home');
 
-
-Route::get('/posts',[PostsController::class, 'index'])->name('posts');
-Route::get('/post/show/{id}',[PostsController::class, 'show'])->name('show');
+Route::redirect('/', '/posts', 302);
+Route::get('/posts',[PostController::class, 'index'])->name('posts');
+Route::get('/post/show/{id}',[PostController::class, 'show'])->name('show');
 
 Route::post('post/show/{id}/comment',[CommentController::class, 'store'])->name('comment.store');
 

@@ -23,7 +23,7 @@ class UserFactory extends Factory
         return [
             'first_name'            => $this->faker->firstName(),
             'last_name'             => $this->faker->lastName(),
-            'avatar'                =>         (rand(1, 10) < 9) ? 'avatar' . rand(0, 10) . '.jpeg' : null,
+            'avatar'                =>         (rand(1, 10) < 9) ? 'avatar' . rand(0, 9) . '.jpeg' : null,
             'email'                 => $this->faker->unique()->safeEmail(),
             'phone'                 =>$phone,
             'last_login_at'         =>$this->faker->dateTime(),

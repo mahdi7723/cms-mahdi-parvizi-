@@ -22,11 +22,21 @@ class comment extends Model
     {
         return $this->morphTo(Comment::class, 'commentable');
     }
+
     public function user()
     {
         return $this->belongsTo(User::class);
     }
 
+    public function getAuthorNameAttribute(): string {
+
+        if ($this->user_id) {
+            return $this->user->full_name;
+        }else{
+            return $this->name;
+        }
+
+    }
 
 
 }
