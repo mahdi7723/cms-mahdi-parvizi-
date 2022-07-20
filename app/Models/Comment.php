@@ -5,12 +5,18 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Comment extends Model
+class comment extends Model
 {
 
     use HasFactory;
 
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'message',
+        'commentable_id',
+        'commentable_type',
+        'user_id',
+        'name',
+    ];
 
     public function comment()
     {
@@ -20,4 +26,7 @@ class Comment extends Model
     {
         return $this->belongsTo(User::class);
     }
+
+
+
 }

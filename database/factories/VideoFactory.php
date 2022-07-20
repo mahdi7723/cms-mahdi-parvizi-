@@ -20,6 +20,7 @@ class VideoFactory extends Factory
     public function definition()
     {
         return [
+            'author_id'      => Author::inRandomOrder()->first()->id,
             'title'       =>$this->faker->sentence,
             'description' =>$this->faker->realText(),
             'image'       =>basename($this->faker->image(storage_path('app/public'))),

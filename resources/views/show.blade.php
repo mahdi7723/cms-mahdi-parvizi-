@@ -3,24 +3,82 @@
 ])
 
 @section('content')
-<div style="background-color: white " class="col-11 mx-auto br-10 pb-4 mb-5">
-
-    <div class="card mb-3">
-        <img src="{{asset('image/post/'.$post->image)}}" class="card-img-top" alt="...">
-        <div class="card-body">
-        <h5 class="card-title">{{ $post->title }}</h5>
-        <p>
-            <small class="opacity-50">{{$post->category->title}}</small>
-            <small class="pr-3 opacity-75">{{ $post->created_at}}</small>
-        </p>
-        <button value="{{ $post->tags}}"></button>
-        <p class="card-text">{{ $post->body }}</p>
-        <div class="avatar d-flex justify-content-start">
-            <img style="width: 3%" src="{{asset('image/avatar/'. $post->user->avatar )}}" class="rounded-circle size-avatar ">
-            <p class="pt-2 pl-3 ">{{$post->user->first_name . " " . $post->user->last_name}}</p>
-
+    <div class="container">
+        <div class="col-12">
+            <img style="height: 450px" width="100%" class="rounded" src="{{asset('image/post/'.$post->image)}}">
         </div>
-        <a href="{{ route('posts') }}" type="submit" class="btn btn-primary mt-2">back</a>
+
+        <div class="col-12">
+            <div class="title-post  pt-4">
+                <h4 class="text-right">{{$post->title}}</h4>
+            </div>
+
+            <p>
+                <span class="opacity-75">{{$post->category->title}}</span>
+                <span class="font-weight-bold"> &nbsp;&nbsp;.</span>
+                <span class="pr-3 opacity-50">تاریخ انتشار : {{date($post->created_at)}}</span>
+            </p>
+            <p class="tags-post col-12 row">
+                @foreach ($post->tags as $tag)
+                <span class="alert" role="alert">
+                    {{$tag->name}}
+                </span>
+                @endforeach
+            </p>
+
+
+            <div class="disc-post">
+                <p>{!! $post->body !!}</p>
+            </div>
+            <div class="author-post col-12">
+                <div class="row pl-2">
+                    <img style="width: 4%" src="{{asset('image/avatar/'. $post->user->avatar )}}" class="rounded-circle size-avatar">
+                    <p class="pt-2 mr-3">
+                        {{$post->user->first_name." ". $post->user->last_name}}
+
+                    </p>
+
+                </div>
+            </div>
+            <div class="comment pt-4">
+                <h4>نظرات شما :</h4>
+                <div class="col-12 mt-2 p-0">
+                    @if($errors->any())
+                        <div class="alert alert-danger col-12">
+
+                            @foreach($errors->all() as $key => $error)
+                                {{ $error }}<br/>
+                            @endforeach
+                        </div>
+                    @endif
+
+                </div>
+                <form action="{{route('comment.store', $post->id)}}" method="POST">
+                    @csrf
+                    @guest
+                        <div class="form-group col-4 pr-0 ">
+                          <input type="text" class="form-control text-right" name="name" placeholder="نام شما" value="{{ old('name') }}">
+                        </div>
+                    @endguest
+                    <div class="form-group mt-2">
+                      <textarea class="form-control resize-none" rows="3" name="message" placeholder="متن پیام شما ...">{{ old('message') }}</textarea>
+                    </div>
+                    <div class="d-flex justify-content-end submit-comment mt-2">
+                        <button type="submit" class="btn btn-primary text-left">ارسال پیام</button>
+                    </div>
+                </form>
+                <div class="comments-post">
+
+                    @foreach ($post->comments as $comment)
+                        <p class="fs-12 opacity-7 pt-5">
+                            <span>{{$comment->author_name}}</span>
+                            <span>در تاریخ {{($comment->created_at)}} نوشت:</span>
+                        </p>
+                        <p>{{$comment->message}}</p>
+                    @endforeach
+
+                </div>
+            </div>
+        </div>
     </div>
-</div>
 @endsection

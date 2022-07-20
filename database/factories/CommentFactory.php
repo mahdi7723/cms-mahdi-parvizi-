@@ -18,16 +18,9 @@ class CommentFactory extends Factory
      */
     public function definition()
     {
-        $commentable_id = [
-            Video::class,
-            Post::class
-        ];
         return [
 
             'message'          => $this->faker->realText(50),
-            'commentable_id'   =>$this->faker->numberBetween(1,15),
-            'commentable_type' =>$commentable_id[array_rand($commentable_id)],
-            'user_id'          => User::factory()->create()->id
         ];
     }
 }

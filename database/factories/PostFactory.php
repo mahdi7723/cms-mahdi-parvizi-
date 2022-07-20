@@ -29,6 +29,7 @@ class PostFactory extends Factory
             'status'         => Arr::random(['draft', 'published', 'hidden']),
             'is_commentable' =>$this->faker->boolean(),
             'image'          =>'post'.rand(0,10).'.png',
+            'release_at'     =>now()->subMinutes(rand(0, 525600)),
         ];
     }
 }

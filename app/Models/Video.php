@@ -8,7 +8,15 @@ use Illuminate\Database\Eloquent\Model;
 class Video extends Model
 {
     use HasFactory;
-    protected $guarded = ['id'];
+    protected $fillable = [
+        'author_id',
+        'title',
+        'description',
+        'duration',
+        'release_at',
+        'uid',
+        'image',
+    ];
     public function comments()
     {
         return $this->morphMany(Comment::class,'commentable');

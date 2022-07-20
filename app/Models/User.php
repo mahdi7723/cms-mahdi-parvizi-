@@ -17,8 +17,15 @@ class User extends Authenticatable
      *
      * @var array<int, string>
      */
-    protected $guarded = ['id'];
-
+    protected $fillable = [
+        'first_name',
+        'last_name',
+        'phone',
+        'avatar',
+        'last_login_at',
+        'email',
+        'password',
+    ];
     /**
      * The attributes that should be hidden for serialization.
      *
@@ -56,5 +63,9 @@ class User extends Authenticatable
     public function posts()
     {
         return $this->hasManyThrough(Post::class,Author::class);
+    }
+
+    public function getFullNameAttribute():string{
+        return $this->first_name . " " . $this->last_name;
     }
 }
