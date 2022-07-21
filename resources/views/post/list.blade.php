@@ -8,7 +8,7 @@
    @foreach($posts as $key => $post)
        @if ($key==0)
             <post class="col-10 mx-auto">
-                    <a href="{{url('/post/show/'.$post['id'])}}">
+                    <a href="{{route('/post/show/'.$post['id'])}}">
 
                         <div class="row pt-3 pb-3">
                             <div class="col-5">
@@ -59,7 +59,7 @@
                                 <h4>{{ $post->title }}</h4>
                             </div>
                             <div class="disc-post">
-                                <p>{!! $post->description !!}</p>
+                                <p>{!! $post->body !!}</p>
                             </div>
 
                         </div>
