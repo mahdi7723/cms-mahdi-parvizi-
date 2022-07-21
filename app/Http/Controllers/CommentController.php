@@ -6,23 +6,20 @@ use App\Models\Post;
 use Illuminate\Http\Request;
 use App\Models\comment;
 use Illuminate\Foundation\Auth\User;
+use Illuminate\Support\Facades\Auth;
 
 
 class CommentController extends Controller
 {
 
-    public function store(Request $request)
+    public function store(Request $request, Post $post)
     {
 
-        $request->validate([
-            'message'=>'required',
+        $post->comments()->create([
+            'message' => $request->message,
+            'name' => $request->name ?? null,
+            'user_id' => Auth::id() ?? null,
         ]);
-
-        $input = $request->all();
-
-        $input['user_id'] = auth()->user()->id;
-
-        Comment::create($input);
 
         dd(request()->all());
 
