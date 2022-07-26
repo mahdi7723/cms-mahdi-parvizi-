@@ -20,11 +20,11 @@ class AdminSeeder extends Seeder
     {
         Admin::factory()
         ->for(User::factory()->state([
-            'first_name' => 'مهدی',
-           'last_name'   => 'پرویزی',
-            'email'      => 'parvizi@gmail.com',
-            'phone'      => '09941329664',
-            'password'   => bcrypt('mahdi13792323'),
+            'first_name'  => 'مهدی',
+            'last_name'   => 'پرویزی',
+            'email'       => 'parvizi@gmail.com',
+            'phone'       => '09941329664',
+            'password'    => bcrypt('mahdi13792323'),
         ]))->create();
 
         //سه ادمین بصورت رندوم

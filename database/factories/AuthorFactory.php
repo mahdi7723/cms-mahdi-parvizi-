@@ -21,7 +21,7 @@ class AuthorFactory extends Factory
 
         return [
 
-            'user_id' => User::all()->random()->id,
+            'user_id' => User::factory(),
             'city'    =>$this->faker->city(),
             'Level'   => $this->faker->randomElement(['junior','mid_level','senior']),
         ];

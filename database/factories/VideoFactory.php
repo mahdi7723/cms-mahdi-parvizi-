@@ -6,7 +6,7 @@ use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 use App\Models\Author;
 use App\Models\Video;
-
+use Illuminate\Support\Facades\Storage;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Video>
  */
@@ -19,15 +19,15 @@ class VideoFactory extends Factory
      */
     public function definition()
     {
+        
         return [
-            'author_id'      => Author::inRandomOrder()->first()->id,
+            'author_id'   => Author::inRandomOrder()->first()->id,
             'title'       =>$this->faker->sentence,
-            'description' =>$this->faker->realText(),
+            'description' =>$this->faker->Text(),
             'image'       =>basename($this->faker->image(storage_path('app/public'))),
             'duration'    =>$this->faker->numberBetween(1000,100000),
             'uid'         =>$this->faker->uuid(),
             'release_at'  =>now(),
-            'image'      => Arr::random(['user1.jpg', 'user2.jpg', 'user3.jpg', null, null]),
         ];
     }
 }

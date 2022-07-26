@@ -19,14 +19,15 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+
         $phone="09".$this->faker->numerify('########');
         return [
             'first_name'            => $this->faker->firstName(),
             'last_name'             => $this->faker->lastName(),
-            'avatar'                =>         (rand(1, 10) < 9) ? 'avatar' . rand(0, 10) . '.jpeg' : null,
+            'avatar'                => (rand(1, 10) < 9) ? 'avatar' . rand(0, 10) . '.jpeg' : null,
             'email'                 => $this->faker->unique()->safeEmail(),
             'phone'                 =>$phone,
-            'last_login_at'         =>$this->faker->dateTime(),
+            'last_login_at'         =>now()->subMinutes(rand(0, 525600)),
             'password'              => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token'        => Str::random(10),
         ];

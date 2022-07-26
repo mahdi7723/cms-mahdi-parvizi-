@@ -14,15 +14,19 @@
             </div>
 
             <p>
-                <span class="opacity-75">{{$post->category->title}}</span>
+                <a href="{{url('category/'.$post->category->id.'/posts')}}">
+                    <span class="opacity-75">{{$post->category->title}}</span>
+                </a>
                 <span class="font-weight-bold"> &nbsp;&nbsp;.</span>
-                <span class="pr-3 opacity-50">تاریخ انتشار : {{date($post->created_at)}}</span>
+                <span class="pr-3 opacity-50">تاریخ انتشار : {{convertToPersianNumber(jalali_date_format2($post->created_at))}}</span>
             </p>
             <p class="tags-post col-12 row">
                 @foreach ($post->tags as $tag)
-                <span class="alert" role="alert">
-                    {{$tag->name}}
-                </span>
+                <a href="{{url('tag/'.$tag->id.'/posts')}}">
+                    <span class="alert" role="alert">
+                        {{$tag->lable}}
+                    </span>
+                </a>
                 @endforeach
             </p>
 
@@ -32,12 +36,13 @@
             </div>
             <div class="author-post col-12">
                 <div class="row pl-2">
-                    <img style="width: 4%" src="{{asset('image/avatar/'. $post->user->avatar )}}" class="rounded-circle size-avatar">
-                    <p class="pt-2 mr-3">
-                        {{$post->user->first_name." ". $post->user->last_name}}
-
-                    </p>
-
+                   <a href="{{url('author/'.$post->author->id.'/posts')}}">
+                        <img style="width: 4%" src="{{asset('image/avatar/'.($post->user->avatar ?? 'guest.jpeg'))}}" class="rounded-circle size-avatar">
+                        <p class="pt-2 mr-3">
+                            {{$post->user->first_name." ". $post->user->last_name}}
+                            <span class="d-block fs-12 opacity-7">{{convertToPersianNumber($post->author->posts()->count()) }} نوشته </span>
+                        </p>
+                    </a>
                 </div>
             </div>
             <div class="comment pt-4">
@@ -72,7 +77,7 @@
                     @foreach ($post->comments as $comment)
                         <p class="fs-12 opacity-7 pt-5">
                             <span>{{$comment->author_name}}</span>
-                            <span>در تاریخ {{($comment->created_at)}} نوشت:</span>
+                            <span>در تاریخ {{convertToPersianNumber(jalali_date_format2($comment->created_at))}} نوشت:</span>
                         </p>
                         <p>{{$comment->message}}</p>
                     @endforeach

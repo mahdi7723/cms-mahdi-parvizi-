@@ -21,7 +21,6 @@ class CommentController extends Controller
             'user_id' => Auth::id() ?? null,
         ]);
 
-        dd(request()->all());
-
+        return redirect()->back();
     }
 }

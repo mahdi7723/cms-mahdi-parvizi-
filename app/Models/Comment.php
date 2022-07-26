@@ -26,7 +26,7 @@ class comment extends Model
     {
         return $this->belongsTo(User::class);
     }
-
-
-
+    public function getAuthorNameAttribute(): string {
+        return $this->user_id ? $this->user->full_name : $this->name;
+    }
 }

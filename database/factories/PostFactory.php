@@ -21,11 +21,11 @@ class PostFactory extends Factory
     public function definition()
     {
         return [
-            'author_id'      => Author::inRandomOrder()->first()->id,
+            'author_id'      => Author::inRandomOrder()->first('id')->id,
+            'category_id'    => Category::inRandomOrder()->first('id')->id,
             'title'          => $this->faker->realText(50),
             'slug'           => $this->faker->slug(),
             'body'           => $this->faker->realText(),
-            'category_id'    => Category::inRandomOrder()->first()->id,
             'status'         => Arr::random(['draft', 'published', 'hidden']),
             'is_commentable' =>$this->faker->boolean(),
             'image'          =>'post'.rand(0,10).'.png',

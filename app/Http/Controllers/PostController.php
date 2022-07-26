@@ -2,20 +2,20 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Post;
 use Illuminate\Http\Request;
+use App\Models\Post;
 
-class PostsController extends Controller
+class PostController extends Controller
 {
     public function index()
     {
         $posts = Post::latest()->paginate(5);
-        return view('posts', compact('posts'));
+        return view('post.list', compact('posts'));
     }
     public function show($id)
     {
         $post = Post::findOrFail($id);
 
-        return view('show', compact('post'));
+        return view('post.single', compact('post'));
     }
 }
